@@ -1,5 +1,1 @@
-### backup ehviewer download data
-
-```shell
-python EhviewerBackup.py -i &lt;ehviewer download directory&gt; -o &lt;backup directory&gt;
-```
+备份ehviewer, 未完成压缩相关的

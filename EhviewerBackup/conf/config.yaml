@@ -1,0 +1,34 @@
+common:
+  # 输入路径
+  input_dir_list:
+    - E:\testPy\in\in1
+    - E:\testPy\in\in2
+  # 输出路径
+  output_dir_list:
+    - E:\testPy\out\本子
+    - E:\testPy\out\本子2
+  # 是否覆盖
+  is_overwrite: true
+  # todo 备份前是否先压缩全量一份
+  is_zip_all_before_backup: true
+  # todo 全量备份的输出路径
+  all_backup_output_dir: E:\Ero\bk
+  # todo 全量备份的输出压缩包名 ({date} 代表输出时间)
+  all_backup_output_filename: ColorfulEhViewer_{date}.zip
+  # todo 备份后是否将对应的漫画文件夹压缩
+  is_zip_single_after_backup: true
+  # 是否全部备份(若不是, 则只备份输出目录中已有的, 及authors和alias中有的)
+  is_backup_all: false
+  # 备份完是否删除原文件
+  is_delete_after_backup: false
+
+# 作者列表(若不配置输出目录则按作者名来定义目录, 配置时需要在作者名后面带上冒号)
+authors:
+  # 作者名, 不区分大小写
+  xiaoming:
+    # 输出目录, 没有则是作者名作为目录
+    out_put_dir: xiaoming-小明
+    # 别名, 以下名字都会视为和当前作者相同
+    alias:
+      - 小明
+      - 小明ABC
