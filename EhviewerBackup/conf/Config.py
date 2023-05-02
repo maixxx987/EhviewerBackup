@@ -46,11 +46,16 @@ class Config:
     def load_authors(self, authors):
         for author_name, author_attr in authors.items():
             # 判断有没有写输出文件夹名字
-            out_put_dir = author_attr['out_put_dir'] if 'out_put_dir' in author_attr else author_name
-            self.author_dict[author_name.lower()] = out_put_dir
-            # 判断有没有别名
-            if 'alias' in author_attr and len(author_attr['alias']) > 0:
-                self.author_dict.update([(alias.lower(), out_put_dir) for alias in author_attr['alias']])
+            if author_attr is not None:
+                out_put_dir = author_attr['out_put_dir'] if 'out_put_dir' in author_attr else author_name
+                self.author_dict[author_name.lower()] = out_put_dir
+                # 判断有没有别名
+                if 'alias' in author_attr and len(author_attr['alias']) > 0:
+                    self.author_dict.update([(alias.lower(), out_put_dir) for alias in author_attr['alias']])
+            else:
+                out_put_dir = author_name
+                self.author_dict[author_name.lower()] = out_put_dir
+            print(author_name + ": " + out_put_dir)
 
     # 读取输出目录文件夹, 获取需要备份的作者名
     def load_output_dir(self):
